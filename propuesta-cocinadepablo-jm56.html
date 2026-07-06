@@ -1,0 +1,391 @@
+<title>Propuesta · Cocina de Pablo · Pau Martí Felip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root {
+    --bg: #060608;
+    --bg-alt: #0d0d12;
+    --violet: #a78bfa;
+    --violet-dim: #7c5cf0;
+    --text: #f5f5f7;
+    --text-muted: #a3a3ad;
+    --border: rgba(167, 139, 250, 0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Helvetica Neue', Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.hero {
+    padding: 120px 0 90px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse at top, rgba(124, 92, 240, 0.12), transparent 60%);
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--violet);
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  h1 span {
+    color: var(--violet);
+    font-weight: 500;
+  }
+
+  .hero p.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 640px;
+  }
+
+  ul.list {
+    list-style: none;
+    margin-top: 24px;
+    display: grid;
+    gap: 16px;
+  }
+
+  ul.list li {
+    color: var(--text);
+    font-size: 1.02rem;
+    padding-left: 32px;
+    position: relative;
+  }
+
+  ul.list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--violet);
+    font-weight: 600;
+  }
+
+  .grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .card h3 {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--violet);
+    margin-bottom: 14px;
+  }
+
+  .card p { font-size: 0.98rem; }
+
+  .price-box {
+    background: linear-gradient(160deg, var(--bg-alt), #0a0a10);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 56px 40px;
+    text-align: center;
+    box-shadow: 0 0 80px rgba(124, 92, 240, 0.08);
+  }
+
+  .price-box .amount {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 200;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .price-box .amount span {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .price-box .note {
+    margin: 18px auto 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .steps {
+    counter-reset: step;
+    display: grid;
+    gap: 28px;
+    margin-top: 24px;
+  }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .step .num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--violet-dim);
+    color: var(--violet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .step p { color: var(--text); margin: 0; }
+  .step p.desc { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+
+  footer.cta {
+    padding: 110px 0 100px;
+    text-align: center;
+  }
+
+  footer.cta h2 {
+    max-width: 560px;
+    margin: 0 auto 20px;
+  }
+
+  footer.cta p { max-width: 480px; margin: 0 auto 40px; }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--violet);
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 18px 36px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 40px rgba(167, 139, 250, 0.25);
+  }
+
+  .btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px rgba(167, 139, 250, 0.4);
+  }
+
+  .signature {
+    margin-top: 90px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .signature strong { color: var(--violet); }
+
+  @media (max-width: 680px) {
+    header.hero { padding: 90px 0 60px; }
+    section { padding: 56px 0; }
+    .grid-two { grid-template-columns: 1fr; gap: 20px; }
+    .price-box { padding: 40px 24px; }
+    .container { padding: 0 20px; }
+  }
+</style>
+
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow">Propuesta comercial</span>
+    <h1>Automatización de pedidos para <span>Cocina de Pablo</span></h1>
+    <p class="subtitle">Una solución de inteligencia artificial a medida para digitalizar y agilizar la gestión de pedidos en Oviedo.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="label">Resumen ejecutivo</div>
+    <h2>Un sistema que trabaja mientras tú cocinas</h2>
+    <p>Cocina de Pablo recibe pedidos a través de distintos canales (teléfono, WhatsApp, redes sociales) de forma manual, lo que consume tiempo del equipo y genera errores evitables. Proponemos implementar un sistema de automatización con inteligencia artificial que centralice, procese y confirme los pedidos automáticamente, liberando tiempo del equipo para lo que realmente importa: la cocina y el cliente.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="label">Problema que resuelve</div>
+    <h2>La gestión manual limita el crecimiento</h2>
+    <p>Cada pedido gestionado a mano implica tiempo de respuesta más lento, riesgo de errores en la toma de datos, saturación del equipo en horas punta y una experiencia de cliente inconsistente. Sin automatización, escalar el negocio significa contratar más personal en lugar de optimizar los procesos existentes.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="label">Objetivos</div>
+    <h2>Qué queremos conseguir</h2>
+    <ul class="list">
+      <li>Reducir el tiempo de gestión de cada pedido a segundos.</li>
+      <li>Eliminar errores humanos en la toma de datos y confirmación.</li>
+      <li>Ofrecer una atención disponible en todo momento, sin depender de que alguien conteste el teléfono.</li>
+      <li>Aumentar la capacidad de pedidos gestionados sin aumentar el equipo.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="label">Qué incluye el servicio</div>
+    <h2>Una solución completa y lista para usar</h2>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Recepción automatizada</h3>
+        <p>Agente de IA que atiende pedidos por WhatsApp de forma natural, las 24 horas del día.</p>
+      </div>
+      <div class="card">
+        <h3>Gestión centralizada</h3>
+        <p>Todos los pedidos organizados en un único panel, sin depender de notas sueltas o llamadas perdidas.</p>
+      </div>
+      <div class="card">
+        <h3>Confirmaciones automáticas</h3>
+        <p>El cliente recibe confirmación y seguimiento de su pedido sin intervención manual del equipo.</p>
+      </div>
+      <div class="card">
+        <h3>Configuración a medida</h3>
+        <p>Adaptado al menú, horarios y forma de trabajar de Cocina de Pablo en Oviedo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="label">Beneficios esperados</div>
+    <h2>Resultados tangibles desde el primer mes</h2>
+    <ul class="list">
+      <li>Menos tiempo dedicado a tareas administrativas y más tiempo en cocina.</li>
+      <li>Menos errores y menos pedidos perdidos por saturación telefónica.</li>
+      <li>Mejor experiencia de cliente: respuesta inmediata a cualquier hora.</li>
+      <li>Capacidad de atender más pedidos sin aumentar costes de personal.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="label">Inversión</div>
+    <h2>Precio de la propuesta</h2>
+    <div class="price-box">
+      <div class="amount">800<span> €</span></div>
+      <p class="note">Implementación del sistema de automatización de pedidos para Cocina de Pablo (Oviedo).</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="label">Por qué trabajar conmigo</div>
+    <h2>Pau Martí Felip</h2>
+    <p>Especialista en inteligencia artificial, automatización y agentes IA para empresas. Diseño sistemas a medida que combinan tecnología de última generación con procesos reales de negocio, sin complicaciones técnicas para el cliente. Acompaño cada proyecto desde la implementación hasta la formación del equipo, para que la solución funcione desde el primer día y siga dando resultado a largo plazo.</p>
+    <ul class="list">
+      <li>Experiencia en inteligencia artificial y agentes automatizados.</li>
+      <li>Soluciones a medida, no plantillas genéricas.</li>
+      <li>Acompañamiento y formación incluidos en el proceso.</li>
+      <li>Foco en resultados medibles para el negocio.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="label">Próximos pasos</div>
+    <h2>Cómo empezamos</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <p>Reunión inicial</p>
+          <p class="desc">Analizamos el flujo actual de pedidos de Cocina de Pablo y definimos los detalles del sistema.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <p>Configuración e implementación</p>
+          <p class="desc">Desarrollamos y configuramos el agente de IA adaptado a las necesidades del negocio.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <p>Formación y puesta en marcha</p>
+          <p class="desc">Formamos al equipo y ponemos en marcha el sistema, con seguimiento durante las primeras semanas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="cta">
+  <div class="container">
+    <h2>Demos el siguiente paso juntos</h2>
+    <p>Hablemos por WhatsApp para resolver dudas y confirmar los detalles de la implementación para Cocina de Pablo.</p>
+    <a class="btn-whatsapp" href="https://wa.me/34601108311" target="_blank" rel="noopener">
+      Hablar por WhatsApp
+    </a>
+    <div class="signature"><strong>Pau Martí Felip</strong> · IA · Automatización · Agentes IA</div>
+  </div>
+</footer>
